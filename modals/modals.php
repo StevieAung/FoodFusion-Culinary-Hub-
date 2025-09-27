@@ -7,7 +7,7 @@
       <div class="row g-0">
         <!-- Left Image -->
         <div class="col-md-6 d-none d-md-block position-relative p-0">
-          <img src="../Assets/images/bg.jpg" alt="Culinary background" class="modal-left-img">
+          <img src="/FoodFusion/Assets/images/login_pic.jpeg" alt="Culinary background" class="modal-left-img">
         </div>
 
         <!-- Right Form -->
@@ -51,7 +51,7 @@
       <div class="row g-0">
         <!-- Left Image -->
         <div class="col-md-6 d-none d-md-block position-relative p-0">
-          <img src="../Assets/images/bg.jpg" alt="Culinary background" class="modal-left-img">
+          <img src="/FoodFusion/Assets/images/login_pic.jpeg" alt="Culinary background" class="modal-left-img">
         </div>
 
         <!-- Right Form -->
