@@ -21,7 +21,7 @@ session_start();
   </section>
 
   <!-- Philosophy Section -->
-  <section class="py-5 bg-white m-3 rounded-4 shadow-sm">
+  <section class="py-5 bg-white m-4 rounded-4 shadow-sm">
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-md-8">

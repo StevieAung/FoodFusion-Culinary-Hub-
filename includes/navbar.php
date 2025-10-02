@@ -20,7 +20,7 @@
                     <li class="nav-item"><a class="nav-link active text-warning px-2 px-md-3 fw-bold" href="home_page.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-2 px-md-3 fw-bold" href="recipe_collections.php">Recipes</a></li>
                     <li class="nav-item"><a class="nav-link px-2 px-md-3 fw-bold" href="community_cookbook.php">Community Cookbook</a></li>
-                    <li class="nav-item"><a class="nav-link px-2 px-md-3 fw-bold" href="#">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 px-md-3 fw-bold" href="resources.php">Resources</a></li>
                     <li class="nav-item"><a class="nav-link px-2 px-md-3 fw-bold" href="about_us.php">About Us</a></li>
                     <li class="nav-item"><a class="nav-link px-2 px-md-3 fw-bold" href="contact_us.php">Contact Us</a></li>
                 </ul>

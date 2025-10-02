@@ -9,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT user_id, first_name, password_hash, failed_attempts, lockout_until 
+    $stmt = $conn->prepare("SELECT user_id, first_name, password_hash, profile_pic, failed_attempts, lockout_until 
                             FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows === 1) {
-        $stmt->bind_result($user_id, $first_name, $password_hash, $failed_attempts, $lockout_until);
+        $stmt->bind_result($user_id, $first_name, $password_hash, $profile_pic, $failed_attempts, $lockout_until);
         $stmt->fetch();
 
         // check lockout
@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_firstname'] = $first_name;
+            $_SESSION['profile_pic'] = $profile_pic ?? './Assets/images/account_icon.png'; // Set profile pic in session
 
             echo json_encode(['status' => 'success', 'message' => 'Login successful!']);
         } else {
@@ -42,11 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($failed_attempts >= 3) {
                 $lockout = date("Y-m-d H:i:s", strtotime("+3 minutes"));
-                $failed_attempts = 0; // reset counter after lockout
             }
 
-            $update = $conn->prepare("UPDATE users SET failed_attempts = ?, lockout_until = ? WHERE user_id = ?");
-            $update->bind_param("isi", $failed_attempts, $lockout, $user_id);
+            $update = $conn->prepare("UPDATE users SET failed_attempts = ?, lockout_until = ? WHERE email = ?");
+            $update->bind_param("iss", $failed_attempts, $lockout, $email);
             $update->execute();
             $update->close();
 
